@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="refresh" content="0; url=https://drive.google.com/drive/folders/1FNicYRrVKm2-Y0ItyWT2KmF9TDhZv0zj?usp=sharing">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Redirecting...</title>
+<!-- No-JS fallback: plain web redirect -->
+<noscript>
+<meta http-equiv="refresh" content="0; url=https://drive.google.com/drive/folders/1FNicYRrVKm2-Y0ItyWT2KmF9TDhZv0zj?usp=sharing">
+</noscript>
 </head>
 <body>
-<p>Redirecting to <a href="https://drive.google.com/drive/folders/1FNicYRrVKm2-Y0ItyWT2KmF9TDhZv0zj?usp=sharing">photos</a>...</p>
+<p>Redirecting to <a id="link" href="https://drive.google.com/drive/folders/1FNicYRrVKm2-Y0ItyWT2KmF9TDhZv0zj?usp=sharing">photos</a>...</p>
+<script>
+  var webUrl = "https://drive.google.com/drive/folders/1FNicYRrVKm2-Y0ItyWT2KmF9TDhZv0zj?usp=sharing";
+
+  if (/Android/i.test(navigator.userAgent)) {
+    // On Android, open the folder in the Google Drive app via an intent URL.
+    // If the app isn't installed, Chrome uses browser_fallback_url to load the web link.
+    var intentUrl =
+      "intent://drive.google.com/drive/folders/1FNicYRrVKm2-Y0ItyWT2KmF9TDhZv0zj?usp=sharing" +
+      "#Intent;scheme=https;package=com.google.android.apps.docs;" +
+      "S.browser_fallback_url=" + encodeURIComponent(webUrl) + ";end";
+    window.location.href = intentUrl;
+  } else {
+    // Everything else (iOS, desktop): normal web redirect, same as before.
+    window.location.href = webUrl;
+  }
+</script>
 </body>
 </html>
