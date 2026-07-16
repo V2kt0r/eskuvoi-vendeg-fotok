@@ -1,31 +1,148 @@
 <!DOCTYPE html>
-<html>
+<html lang="hu">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Redirecting...</title>
-<!-- No-JS fallback: plain web redirect -->
-<noscript>
-<meta http-equiv="refresh" content="0; url=https://drive.google.com/drive/folders/1FNicYRrVKm2-Y0ItyWT2KmF9TDhZv0zj?usp=sharing">
-</noscript>
+<title>Laura & Viktor — Vendégfotók</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory: #f8f4ec;
+    --ink: #3d3a34;
+    --olive: #4e4f27;
+    --olive-dark: #3b3c1d;
+  }
+  * { box-sizing: border-box; }
+  html, body { min-height: 100%; margin: 0; }
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2.5rem 1.5rem;
+    background: var(--ivory);
+    color: var(--ink);
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 420px;
+  }
+  .names {
+    font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    font-weight: 600;
+    font-size: 2.6rem;
+    line-height: 1.1;
+    color: var(--olive);
+    margin: 0;
+  }
+  .date {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink);
+    opacity: 0.7;
+    margin: -0.5rem 0 0;
+  }
+  .subtitle {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 1.7rem;
+    font-weight: 500;
+    margin: 0;
+  }
+  .intro {
+    margin: 0;
+    max-width: 24rem;
+    line-height: 1.6;
+    color: var(--ink);
+    opacity: 0.85;
+  }
+  .qr {
+    width: 220px;
+    max-width: 70vw;
+    height: auto;
+    padding: 0.75rem;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  }
+  .qr-caption {
+    margin: -0.5rem 0 0;
+    font-size: 0.95rem;
+    color: var(--ink);
+    opacity: 0.7;
+  }
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    max-width: 15rem;
+    color: var(--ink);
+    opacity: 0.4;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .divider::before, .divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: currentColor;
+  }
+  .btn {
+    display: inline-block;
+    padding: 0.95rem 2rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #fff;
+    background: var(--olive);
+    border-radius: 999px;
+    text-decoration: none;
+    box-shadow: 0 3px 12px rgba(78, 79, 39, 0.3);
+    transition: background 0.15s ease;
+  }
+  .btn:active, .btn:hover { background: var(--olive-dark); }
+</style>
 </head>
 <body>
-<p>Redirecting to <a id="link" href="https://drive.google.com/drive/folders/1FNicYRrVKm2-Y0ItyWT2KmF9TDhZv0zj?usp=sharing">photos</a>...</p>
-<script>
-  var webUrl = "https://drive.google.com/drive/folders/1FNicYRrVKm2-Y0ItyWT2KmF9TDhZv0zj?usp=sharing";
+  <main class="card">
+    <h1 class="names">Laura &amp; Viktor</h1>
+    <p class="date">2026.07.18</p>
+    <h2 class="subtitle">Vendégfotók</h2>
+    <p class="intro">Töltsd fel a saját fotóidat, és nézd meg a többiekét!</p>
 
-  if (/Android/i.test(navigator.userAgent)) {
-    // On Android, open the folder in the Google Drive app via an intent URL.
-    // If the app isn't installed, Chrome uses browser_fallback_url to load the web link.
-    var intentUrl =
-      "intent://drive.google.com/drive/folders/1FNicYRrVKm2-Y0ItyWT2KmF9TDhZv0zj?usp=sharing" +
-      "#Intent;scheme=https;package=com.google.android.apps.docs;" +
-      "S.browser_fallback_url=" + encodeURIComponent(webUrl) + ";end";
-    window.location.href = intentUrl;
-  } else {
-    // Everything else (iOS, desktop): normal web redirect, same as before.
-    window.location.href = webUrl;
-  }
-</script>
+    <img class="qr" src="qr.svg" alt="QR-kód a fotómappához">
+    <p class="qr-caption">Olvasd be a QR-kódot a telefonoddal</p>
+
+    <div class="divider">vagy</div>
+
+    <a class="btn" id="open" href="https://drive.google.com/drive/folders/1FNicYRrVKm2-Y0ItyWT2KmF9TDhZv0zj?usp=sharing">Megnyitás ezen az eszközön</a>
+  </main>
+
+  <script>
+    // On Android, upgrade the button to an intent:// URL so it opens the Google Drive
+    // app (with browser_fallback_url if the app isn't installed). iOS/desktop keep the
+    // plain web link. The QR code is the reliable cross-device way to open the app.
+    (function () {
+      var webUrl = "https://drive.google.com/drive/folders/1FNicYRrVKm2-Y0ItyWT2KmF9TDhZv0zj?usp=sharing";
+      if (/Android/i.test(navigator.userAgent)) {
+        document.getElementById("open").href =
+          "intent://drive.google.com/drive/folders/1FNicYRrVKm2-Y0ItyWT2KmF9TDhZv0zj?usp=sharing" +
+          "#Intent;scheme=https;package=com.google.android.apps.docs;" +
+          "S.browser_fallback_url=" + encodeURIComponent(webUrl) + ";end";
+      }
+    })();
+  </script>
 </body>
 </html>
